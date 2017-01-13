@@ -1,0 +1,2 @@
+[2016-12-09T15:15:08,903][WARN ][logstash.runner          ] SIGINT received. Shutting down the agent.
+[2016-12-09T15:15:08,988][WARN ][logstash.agent           ] stopping pipeline {:id=>"main"}
