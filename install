@@ -1,0 +1,20 @@
+java -version
+if [ !"$?" = "0" ]; then
+        echo "Java is required"
+        exit
+fi
+
+curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.2.tar.gz &&
+tar -xvf elasticsearch-5.0.2.tar.gz &&
+mv elasticsearch-5.0.2 elasticsearch &&
+echo '-------- elasticsearch installed ----------'
+
+curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.0.2.zip &&
+unzip logstash-5.0.2.zip &&
+mv logstash-5.0.2 logstash &&
+echo '--------- logstash installed ---------------'
+
+curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.0.2-darwin-x86_64.tar.gz &&
+tar xzvf kibana-5.0.2-darwin-x86_64.tar.gz &&
+mv kibana-5.0.2-darwin-x86_64 kibana &&
+echo '---------- kibana installed ----------------'
