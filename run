@@ -1,0 +1,39 @@
+cp config/logstash.conf logstash/config &&
+if [ "$?" = "0"]; then
+  echo "------ Logstash config copied --------"
+else
+  echo "------- Error copying the config --------"
+  exit
+fi
+
+cp config/logstash.yml logstash/config &&
+if [ "$?" = "0"]; then
+  echo "------ Logstash config copied --------"
+else
+  echo "------- Error copying the config --------"
+  exit
+fi
+
+if [ -d "logstash" ]; then
+  logstash/bin/logstash &&
+  echo "started logstash"
+else 
+  echo "-------Logstash doesn't exist------"
+  exit
+fi
+
+if [ -d "elasticsearch" ]; then
+  elasticsearch/bin/elasticsearch &&
+  echo 'started elastic' &&
+else
+  echo "-------ElasticSearch doen't exist-------"
+  exit
+fi
+
+if [-d "kibana"]; then
+  kibana/bin/kibana &&
+  echo 'started kibana'
+else
+   echo "-------Kibana doesn't exist----------"
+   exit
+fi
